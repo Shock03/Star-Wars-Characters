@@ -44,10 +44,15 @@ async function loadCharacters(url) {
             characterNameBG.appendChild(characterName)
             card.appendChild(characterNameBG)
             mainContent.appendChild(card);
+
+            card.onclick = () => {
+                const modal = document.getElementById("modal")
+                modal.style.visibility = "visible"
+            }
         });
 
-        const nextButton = document.getElementById('next-button');
-        const backButton = document.getElementById('back-button');
+        const nextButton = document.getElementById("next-button");
+        const backButton = document.getElementById("back-button");
 
         //Habilitando ou desabilitando os botões Anterior e Proxima
         nextButton.disabled = !responseJson.next;
@@ -97,3 +102,13 @@ async function loadPreviousPage () {
         alert('Erro ao carregar a página anterior');
     }
 }
+
+function hideModal() {
+    const modal = document.getElementById("modal")
+    modal.style.visibility = "hidden"
+}
+
+
+
+
+
