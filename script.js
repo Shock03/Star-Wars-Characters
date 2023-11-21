@@ -1,4 +1,4 @@
-let currentPageUrl = 'https://swapi.dev/api/people/'    //Endpoint da API que vamos consumir.(declarado como let, pois dependendo do card, as informações iram mudar e consequentemente a url)
+let currentPageUrl = 'https://swapi.dev/api/people/';    //Endpoint da API que vamos consumir.(declarado como let, pois dependendo do card, as informações iram mudar e consequentemente a url)
 
 window.onload = async () => {     //Carregando as infos da API toda vez que a pag. for atualizada.
     try {
@@ -8,12 +8,12 @@ window.onload = async () => {     //Carregando as infos da API toda vez que a pa
         alert('Erro ao carregar cards');
     }
 
-    const nextButton = document.getElementById('next-button')
-    const backButton = document.getElementById('back-button')
+    const nextButton = document.getElementById('next-button');
+    const backButton = document.getElementById('back-button');
 
     //Monitorando eventos no elemento next/back button |Toda vez que o botão for clicado, irá p/ pag seguinte(Next) ou p/ a anterior(Previous)|
-    nextButton.addEventListener('click', loadNextPage)
-    backButton.addEventListener('click', loadPreviousPage)
+    nextButton.addEventListener('click', loadNextPage);
+    backButton.addEventListener('click', loadPreviousPage);
 };
 
 
@@ -43,23 +43,57 @@ async function loadCharacters(url) {
             //Passando um elemento p/ dentro de outro (appendChild), igual a estrutura no HTML
             characterNameBG.appendChild(characterName)
             card.appendChild(characterNameBG)
-            mainContent.appendChild(card)
+            mainContent.appendChild(card);
         });
 
-        const nextButton = document.getElementById('next-button')
-        const backButton = document.getElementById('back-button')
+        const nextButton = document.getElementById('next-button');
+        const backButton = document.getElementById('back-button');
 
         //Habilitando ou desabilitando os botões Anterior e Proxima
-        nextButton.disabled = !responseJson.next
-        backButtonButton.disabled = !responseJson.previous
+        nextButton.disabled = !responseJson.next;
+        backButton.disabled = !responseJson.previous;
 
         //Manipulando o botão de voltar |Se existir o previous(alguma pag anterior), botão visivel, se não, escondido.
-        backButton.style.visibility = responseJson.previous? "visible" : "hidden"
+        backButton.style.visibility = responseJson.previous? "visible" : "hidden";
 
-        currentPageUrl = url
+        //A partir da pág dois, a currentPageUrl não terá mais o valor inicial, terá a url da próxima pág e assim por diante.
+        currentPageUrl = url;
 
     } catch (error) {
-        alert('Erro ao carregar os personagens')
-        console.log(error)
+        console.log(error);
+        alert('Erro ao carregar os personagens');
+    }
+}
+
+// Função para carregar a PRÓXIMA página.
+async function loadNextPage () {
+    //Previnindo um possivel erro. Só vai carregar a próx pág caso tenha um valor na currentPageUrl. Caso n tenha, vai interromper a função com o return.    
+    if (!currentPageUrl) return;
+
+    try {
+        const response = await fetch(currentPageUrl);
+        const responseJson = await response.json();
+
+        await loadCharacters(responseJson.next);
+
+    } catch (error) {
+        console.log(error);
+        alert('Erro ao carregar a próxima página');
+    }
+}
+
+// Função para carregar a página ANTERIOR.
+async function loadPreviousPage () {
+    if (!currentPageUrl) return;
+
+    try {
+        const response = await fetch(currentPageUrl);
+        const responseJson = await response.json();
+
+        await loadCharacters(responseJson.previous);
+
+    } catch (error) {
+        console.log(error);
+        alert('Erro ao carregar a página anterior');
     }
 }
