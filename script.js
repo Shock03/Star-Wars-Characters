@@ -16,9 +16,9 @@ window.onload = async () => {     //Carregando as infos da API toda vez que a pa
     backButton.addEventListener('click', loadPreviousPage);
 };
 
-
+//Função para carregar os personagens na tela.
 async function loadCharacters(url) {
-    const mainContent = document.getElementById('main-content');  //Manipulando com o DOM.
+    const mainContent = document.getElementById('main-content');  //Manipulando com o DOM (document).
     mainContent.innerHTML = '';  //Limpar os resultados anteriores.
 
     try {
@@ -45,12 +45,53 @@ async function loadCharacters(url) {
             card.appendChild(characterNameBG)
             mainContent.appendChild(card);
 
+            //Chamando o modal ao clicar na imagem.
             card.onclick = () => {
                 const modal = document.getElementById("modal")
                 modal.style.visibility = "visible"
+
+                //Limpando os resultados anteriores.
+                const modalContent = document.getElementById("modal-content")
+                modalContent.innerHTML = '';
+
+                //Criando a div de imagem de cada personagem dentro do modal e passando a imagem correspondente ao personagem selecionado(backgroundImage).
+                const characterImage = document.createElement("div")
+                characterImage.style.backgroundImage =
+                `url('https://starwars-visualguide.com/assets/img/characters/${character.url.replace(/\D/g, "")}.jpg')`
+                characterImage.className = "character-image"
+
+                //Criando os detalhes dos personagens (Nome, Altura, Peso, Cor dos olhos e Nascimento).
+                const name = document.createElement("span")
+                name.className = "character-details"
+                name.innerText = `Nome: ${character.name}`
+
+                const characterHeight = document.createElement("span")
+                characterHeight.className = "character-details"
+                characterHeight.innerText = `Altura: ${convertHeight(character.height)}`
+
+                const mass = document.createElement("span")
+                mass.className = "character-details"
+                mass.innerText = `Peso: ${convertMass(character.mass)}`
+
+                const eyeColor = document.createElement("span")
+                eyeColor.className = "character-details"
+                eyeColor.innerText = `Cor dos olhos: ${convertEyeColor(character.eye_color)}`
+
+                const birthYear = document.createElement("span")
+                birthYear.className = "character-details"
+                birthYear.innerText = `Nascimento: ${convertBirthYear(character.birth_year)}`
+
+                //Passando os "span" p/ dentro de modalContent(Conteúdo do modal) com o appendChild, igual a estrutura HTML.
+                modalContent.appendChild(characterImage)
+                modalContent.appendChild(name)
+                modalContent.appendChild(characterHeight)
+                modalContent.appendChild(mass)
+                modalContent.appendChild(eyeColor)
+                modalContent.appendChild(birthYear)
             }
         });
 
+        //Manipulando os botões no JS
         const nextButton = document.getElementById("next-button");
         const backButton = document.getElementById("back-button");
 
@@ -103,12 +144,52 @@ async function loadPreviousPage () {
     }
 }
 
+//Função ao clicar no modal ou fora dele, o modal fica hidden, escondido.
 function hideModal() {
     const modal = document.getElementById("modal")
     modal.style.visibility = "hidden"
 }
 
+//Convertendo a cor dos olhos que originalmente vem em ingles pela API.
+function convertEyeColor(eyeColor) {
+    const cores = {
+      blue: "azul",
+      brown: "castanho",
+      green: "verde",
+      yellow: "amarelo",
+      black: "preto",
+      pink: "rosa",
+      red: "vermelho",
+      orange: "laranja",
+      hazel: "avela",
+      unknown: "desconhecida"
+    };
+  
+    return cores[eyeColor.toLowerCase()] || eyeColor;
+  }
 
+//Convertendo a altura em decimal e acrescentando o "."
+function convertHeight(height) {
+    if (height === "unknown") {
+        return "desconhecida"
+    }
+    return (height / 100).toFixed(2);
+}
 
+//Convertendo o peso em KG.
+function convertMass(mass) {
+    if (mass === "unknown") {
+      return "desconhecido";
+    }
+    
+    return `${mass} kg`;
+  }
 
-
+//Convertendo "unknown" em "desconhecido".
+function convertBirthYear(birthYear) {
+    if (birthYear === "unknown") {
+      return "desconhecido";
+    }
+    
+    return birthYear;
+  }
