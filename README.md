@@ -1,4 +1,4 @@
-# Star-Wars-Characters
+#🖥️ Star-Wars-Characters
 ## Projeto prático com HTML, CSS e JavaScript consumindo API do Star Wars no SWAPI. Esse projeto traz diversas informações sobre os personagens da franquia. 
 
 COMO USAR?
