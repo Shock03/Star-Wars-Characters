@@ -3,54 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars Characters | Breno Marques</title>
+
+    <title>Star Wars World | Breno Marques</title>
+
+    <!-- Link CSS -->
     <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./assets/millennium-falcon.png" type="image/x-icon">
+
+    <!-- Link Favicon -->
+    <link rel="shortcut icon" href="./assets/darth_vader.png" type="image/x-icon">
+
+    <!-- Link Font-Awesome -->
+    <script src="https://kit.fontawesome.com/a747b09475.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
     <header>
         <a href="./index.html">
             <div class="logo">
-                <img src="./assets/star-wars-logo.png" alt="logo" class="logo-img"/>
+                <img src="./assets/logo.png" alt="logo" class="logo-img"/>
             </div>
         </a>
 
+        <!-- Links midias sociais -->
         <div class="social-media">  
             <a href="https://github.com/Shock03" target="_blank">
-                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-2x fa-github"></i>
             </a>
-
             <a href="https://www.linkedin.com/in/marquesbreno/" target="_blank">
-                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-2x fa-linkedin"></i>
             </a>
         </div>
     </header>
 
+    <!-- Conteiner principal -->
     <div class="main-container">
+        <h2>Discover the wonderful world of &nbsp;Star Wars</h2>
         
-        <h2>Conheca todos os personagens de  Star Wars em um so lugar</h2>
-        
-        <div class="main-content" id="main-content"></div>
+        <!-- Conteúdo principal do conteiner -->
+        <div class="main-content" id="main-content">
 
-        <div class="modal" id="modal" onclick="hideModal()">
-            <div class="modal-content" id="modal-content"></div>
+            <!-- Navegação para selecionar as pages -->
+            <a href="./Pages/Characters/characters.html">
+                <div class="cards card-characters">
+                    <div class="character-name-bg">
+                        <span class="character-name">Characters</span>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="./Pages/Species/species.html">
+                <div class="cards card-species">
+                    <div class="character-name-bg">
+                        <span class="character-name">Species</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./Pages/Planets/planets.html">
+                <div class="cards card-planets">
+                    <div class="character-name-bg">
+                        <span class="character-name">Planets</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./Pages/Starships/starships.html">
+                <div class="cards card-starships">
+                    <div class="character-name-bg">
+                        <span class="character-name">Starships</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./Pages/Vehicles/vehicles.html">
+                <div class="cards card-vehicles">
+                    <div class="character-name-bg">
+                        <span class="character-name">Vehicles</span>
+                    </div>
+                </div>
+            </a>
         </div>
-
-        <div class="buttons">
-            <button id="back-button" disabled>Anterior</button>
-            <button id="next-button" disabled>Próxima</button>
-        </div>
-
+             
     </div>
 
+    <!-- Rodapé -->
     <footer>
-        <p class="footer-logo">Star Wars Characters</p>
-        <p class="copyright">Desenvolvido por &copy; Breno Marques</p>
+        <p class="footer-logo">Star Wars World</p>
+        <p class="copyright">Developed by &copy; Breno Marques</p>
     </footer>
 
-
-    <script src="https://kit.fontawesome.com/a747b09475.js" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
 </body>
 </html>

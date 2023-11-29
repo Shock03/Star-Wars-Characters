@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Star Wars - Planets | Breno Marques</title>
+
+    <!-- Link Favicon -->
+    <link rel="shortcut icon" href="../../assets/darth_vader.png" type="image/x-icon">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./planets.css">
+
+    <!-- Link Font-Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    
+    <header>
+        <a href="../../index.html">
+            <div class="logo">
+                <img src="../../assets/logo.png" alt="Logo Star Wars" class="logo-img">
+            </div>
+        </a>
+        
+        <div class="menu">
+            <a href="../../index.html">
+                <span>Home</span>
+            </a>
+            <a href="../characters/characters.html">
+                <span>Characters</span>
+            </a>
+            <a href="../species/species.html">
+                <span>Species</span>
+            </a>
+            <a href="../starships/starships.html">
+                <span>Starships</span>
+            </a>
+            <a href="../vehicles/vehicles.html">
+                <span>Vehicles</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <h2>
+            Meet all &nbsp;StarWars planets in one place
+        </h2>
+        <div class="main-content" id="main-content">
+            <!-- Cards serão criados via Javascript (planets.js) aqui -->
+        </div>
+
+        <div class="modal" id="modal" onclick="hideModal()">
+            <div class="modal-content" id="modal-content">
+                
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="back-btn" disabled>Previous</button>
+            <button id="next-btn" disabled>Next</button>
+        </div>
+
+    </div>
+
+    <!-- Rodapé com as mídias sociais -->
+    <footer>
+        <p class="footer-logo">Star Wars World</p>
+        <p class="copyright">Developed by &copy; Breno Marques</p>
+
+        <div class="social-media">  
+            <a href="https://github.com/Shock03" target="_blank">
+                <i class="fa-brands fa-2x fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/marquesbreno/" target="_blank">
+                <i class="fa-brands fa-2x fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="./planets.js"></script>
+</body>
+</html>
