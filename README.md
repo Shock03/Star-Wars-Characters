@@ -34,4 +34,4 @@ Caso deseje personalizar o projeto, você pode:
 - Contribuições são bem-vindas! Se você tiver alguma sugestão, correção de bugs ou melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 ## GitHub Pages
-- Este site está hospedado no **GitHub Pages.** Para acessá-lo [clique aqui]().
+- Este site está hospedado no **GitHub Pages.** Para acessá-lo [clique aqui](https://shock03.github.io/Star-Wars-World/).
