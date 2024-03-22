@@ -1,3 +1,7 @@
+<img src="./assets/Mockup Projeto Star Wars World.jpg">
+<div align=center>
+</div>
+
 # 🖥️ Star-Wars-World
 Projeto prático ultilizando HTML, CSS e JavaScript. O objetivo do projeto é criar um site que exibe informações sobre personagens, espécies, planetas, naves espaciais e veículos do universo Star Wars, utilizando a API pública https://swapi.dev para obter os dados necessários das requisições, e o site https://starwars-visualguide.com para obter as imagens necessárias.
 
